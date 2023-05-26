@@ -7,9 +7,10 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <h1> site lindão do jakes</h1>
-    <hr>
-    @yield('content')
-
+    <h1> site lindão do e-commerce</h1>
+    <hr width="100%" align="left" color="red">
+    @yield('content') <br>
+    @yield('content2') <br>
+    @yield('content3')
 </body>
 </html>
