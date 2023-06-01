@@ -4,6 +4,13 @@
 
 @section('content')
 <h2>Adicione seu produto</h2>
+
+@if ($errors)
+@foreach ($errors->all() as $err)
+
+ {{$err}} <br>
+@endforeach
+@endif
 <a href="{{ route('produtos')}}">voltar pagina</a>
 
 
