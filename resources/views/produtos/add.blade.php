@@ -7,7 +7,7 @@
 <a href="{{ route('produtos')}}">voltar pagina</a>
 
 
-<form action="{{ route('produtos.addsave')}}" method="post">
+<form action="{{ route('produtos.addsave')}}" method="post" >
 @csrf
 <input type="text" name="name" placeholder="nome do produto">
 <br>
