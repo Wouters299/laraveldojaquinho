@@ -32,4 +32,9 @@ return view('produtos.index', ['prods'=> $prods ,]);
         return redirect() ->route('produtos');
 
     }
+
+    public function view (Produto $produto) {
+       return view ('produtos.view' , ['prod' => $produto , ]);
+    }
+
 }

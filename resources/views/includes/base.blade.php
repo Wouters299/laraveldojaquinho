@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1> site lindão do e-commerce</h1>
-    <hr width="100%" align="left" color="red">
+    <hr width="100%" align="left" color="black">
     @yield('content') <br>
     @yield('content2') <br>
     @yield('content3')
