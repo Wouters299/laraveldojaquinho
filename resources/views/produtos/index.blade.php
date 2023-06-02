@@ -10,6 +10,7 @@
         <th scope="col">nome</th>
         <th scope="col">price</th>
         <th scope="col">quantidae</th>
+        <th scope="col">edit</th>
       </tr>
     </thead>
 
@@ -22,6 +23,7 @@
         <td><a href="{{route('produto.view'  , $prod->id)}}"> {{$prod->name}} </a> </td>
         <td> R$ {{number_format($prod->price, 2 , ',', '.')}} </td>
         <td>  {{$prod->quantity}}  </td>
+        <td>  <a href="{{route('produtos.edit', $prod->id)}}"> Editar</a> </td>
     </tr>
 
     @endforeach

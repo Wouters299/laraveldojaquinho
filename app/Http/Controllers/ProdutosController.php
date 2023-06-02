@@ -37,4 +37,9 @@ return view('produtos.index', ['prods'=> $prods ,]);
        return view ('produtos.view' , ['prod' => $produto , ]);
     }
 
+    public function edit (Produto $produto) {
+
+        return view ('produtos.add' , ['prod' => $produto , ]);
+     }
+
 }
