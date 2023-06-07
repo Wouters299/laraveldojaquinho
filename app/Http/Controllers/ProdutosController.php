@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 
 class ProdutosController extends Controller
@@ -25,13 +27,28 @@ return view('produtos.index', ['prods'=> $prods ,]);
 
         $dados = $form->validate([
             'name' => 'required|Unique:produtos|min:3',
-            'price' =>'required|min:0|numeric',
-            'quantity' => 'required| min:1|numeric|integer'
+            'price' =>'required|gte:0|numeric',
+            'quantity' => 'required| gte:1|numeric|integer'
         ]);
         Produto::create($dados);
-        return redirect() ->route('produtos');
+        return redirect() ->route('produtos')->with('sucesso', 'Produto inserido com sucesso');
 
     }
+
+public function editsave(request $form , Produto $produto) {
+
+    $dados = $form->validate([
+        'name' => ['required',
+     Rule::unique('produtos')->ignore($produto->id),
+        'min:3'],
+        'price' =>'required|gte:0|numeric',
+        'quantity' => 'required| gte:0|numeric|integer'
+    ]);
+    $produto->fill($dados);
+    $produto->save();
+
+    return redirect() ->route('produtos');
+}
 
     public function view (Produto $produto) {
        return view ('produtos.view' , ['prod' => $produto , ]);
@@ -42,4 +59,13 @@ return view('produtos.index', ['prods'=> $prods ,]);
         return view ('produtos.add' , ['prod' => $produto , ]);
      }
 
+
+
+public function delete (Produto $produto) {
+
 }
+public function deleteforreal (Produto $produto) {
+
+}
+    }
+

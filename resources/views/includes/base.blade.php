@@ -8,9 +8,16 @@
 </head>
 <body>
     <h1> site lindão do e-commerce</h1>
-    <hr width="100%" align="left" color="black">
+    <div>
+  <ul>
+      <li> <a href="{{'home'}}"> home</a></li>
+      <li> <a href="{{'produtos'}}"> produtos</a></li>
+  </ul>
+    </div>
+
     @yield('content') <br>
     @yield('content2') <br>
     @yield('content3')
+
 </body>
 </html>

@@ -13,15 +13,14 @@
 @endif
 
 
-
-<form action="{{ route('produtos.addsave')}}" method="post" >
+<form action="{{url()->current()}}" method="post">
 @csrf
 <div class="form-group">
-<input type="text" class="form-control" name="name" placeholder="nome do produto" value="{{ old ('name')}}">
+<input type="text" class="form-control" name="name" placeholder="nome do produto" value="{{ old ('name' ,$prod->name ??'')}}">
 <br>
-<input type="number"  class="form-control" name="price" placeholder="preço do produto" step="0.01" min="0.1" value="{{ old ('price')}}">
+<input type="number"  class="form-control" name="price" placeholder="preço do produto" step="0.01" min="0.1" value="{{ old ('price' ,$prod->price ??'')}}">
 <br>
-<input type="number"  class="form-control" name="quantity" placeholder="quantidade" min="0" value="{{ old ('quantity')}}">
+<input type="number"  class="form-control" name="quantity" placeholder="quantidade" min="0" value="{{ old ('quantity' ,$prod->quantity ??'')}}">
 
 <div style="text-align: center; height='100px' , weight='100px'">
     <button type="submit" class="btn btn-primary">Submit</button>
