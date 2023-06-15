@@ -10,7 +10,7 @@
     <h1> site lindão do e-commerce</h1>
     <div>
   <ul>
-      <li> <a href="{{'home'}}"> home</a></li>
+      <li> <a href="{{'welcome'}}"> home</a></li>
       <li> <a href="{{'produtos'}}"> produtos</a></li>
   </ul>
     </div>

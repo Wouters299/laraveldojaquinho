@@ -62,10 +62,11 @@ public function editsave(request $form , Produto $produto) {
 
 
 public function delete (Produto $produto) {
-
+return view('produtos.delete', ['prod'=> $produto,]);
 }
 public function deleteforreal (Produto $produto) {
-
+$produto->delete();
+return redirect()->route('produtos')->with('sucesso', 'produto apagado');
 }
     }
 

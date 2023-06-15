@@ -18,6 +18,7 @@
         <th scope="col">price</th>
         <th scope="col">quantidae</th>
         <th scope="col">edit</th>
+        <th scope="col">apagar</th>
       </tr>
     </thead>
 
@@ -31,6 +32,7 @@
         <td> R$ {{number_format($prod->price, 2 , ',', '.')}} </td>
         <td>  {{$prod->quantity}}  </td>
         <td>  <a href="{{route('produtos.edit', $prod->id)}}"> Editar</a> </td>
+        <td>  <a href="{{route('produtos.delete', $prod->id)}}"> Apagar</a> </td>
     </tr>
 
     @endforeach
