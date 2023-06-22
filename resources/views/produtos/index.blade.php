@@ -11,6 +11,19 @@
 </marquee>
 </div>
 @endif
+
+<form action="{{route('produtos')}}" method="POST">
+    @csrf
+<input type="text" name="busca">
+<select name="ord">
+<option value="asc">crescente</option>
+<option value="desc">decrescente</option>
+</select>
+<input type="submit" value="buscar">
+<br>
+
+</form>
+
 <table class="table table-dark">
     <thead>
       <tr>

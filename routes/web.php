@@ -33,3 +33,5 @@ Route::post('/produtos/edit/{produto}', [ProdutosController::class, 'editsave'])
 Route::get('/produtos/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
 
 Route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteforreal'])->name('produtos.deleteforreal');
+
+Route::post('/produtos', [ProdutosController::class, 'index']);
