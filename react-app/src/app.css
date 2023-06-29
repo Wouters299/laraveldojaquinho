@@ -1,0 +1,22 @@
+.numero {
+    padding: 10px;
+    border: 1px black;
+    border-radius: 8px;
+}
+.app{ display: flex;
+    flex-direction: column;
+
+}
+.vermelho{
+    background-color: red;
+}
+* {
+    margin: 0%;
+    padding: 0%;
+    
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
+}
