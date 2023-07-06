@@ -1,33 +1,53 @@
-import { useState } from "react";
-import { Botao } from './componentes/botao';
-import './app.css'
-import './index.css'
-import { Texto } from './componentes/texto';
+import React, { useState } from 'react';
+import './app.css';
 
+const useItems = () => {
+  const [items, setItems] = useState([JSON.parse]);
+  const [texto, setTexto] = useState('');
 
-function App() {
+  const add = () => {
+    setItems([...items, texto]);
+    setTexto('');
+  };
 
-  const[quantidade, setQuantidade] = useState(0)
+  const removerItem = (item) => {
+    setItems(items.filter((el) => el !== item));
+  };
 
+  const handleChange = (event) => {
+    setTexto(event.target.value);
+  };
 
+  return { items, texto, add, handleChange, removerItem };
+};
 
-  const aumenta = () => { setQuantidade((q) => q+1)
-    }
+const App = () => {
+  const { items, texto, add, handleChange, removerItem } = useItems();
 
-  const diminui = () => { setQuantidade((q) => q-1)
-  }
-    return (
-      <div className="app">
+  return (
+    <div className="app">
+      <h1>Items</h1>
+      <div>
+        <input type="text" value={texto} onChange={handleChange} />
+        <button type="button" onClick={add}>
+          +
+        </button>
+      </div>
 
-
-<br></br>
-
-    <br></br>
-    <Texto texto={quantidade} />
-    <Botao disabled={quantidade === 0} onClick={diminui} className={quantidade === 0 ? "vermelho" : ""}> - </Botao>
-    <Botao disabled={quantidade === 10} onClick={aumenta} className={quantidade === 10 ? "vermelho" : ""}>  + </Botao>
+      <ul>
+        {items.length > 0 &&
+          items.map((el, index) => (
+            <li key={index}>
+              {el}
+              <button onClick={() => removerItem(el)} className="remove">
+                Remove
+              </button>
+            </li>
+          ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default App;
+

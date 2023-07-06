@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\usuario;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,10 +28,13 @@ class usuariosController extends Controller
         $dados = $form->validate([
             'name' => 'required',
             'password' => 'required',
+            'email' => 'required',
 
         ]);
         $dados['password'] = Hash::make($dados['password']);
         Usuario::create($dados);
+        $user = Usuario::create($dados);
+        event(new Registered ($user));
         return redirect()->route('usuarios.add');
     }
 
@@ -50,7 +54,7 @@ class usuariosController extends Controller
                 'password' => 'required',
             ]);
             if(Auth::attempt($dados)) {
-                return redirect()->route('produtos');
+                return redirect()->intended('produtos');
             }
             else{
                 return redirect()->route('login')->with('erro', 'deu ruim');

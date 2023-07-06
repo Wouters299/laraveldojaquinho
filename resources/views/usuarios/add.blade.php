@@ -17,6 +17,8 @@
         <br>
         <input type="text" name="password" placeholder="senha">
         <br>
+        <input type="email" name="email" placeholder="email">
+        <br>
         <input type="submit" value="Adiconar User">
 
     </form>
